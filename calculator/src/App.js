@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div>
       <Navbar/>
-      <div className='container-sm' style={{width:'30rem'}}>
+      <div className='container-sm' style={{width:'23rem'}}>
         <Form/>
       </div>
     </div>

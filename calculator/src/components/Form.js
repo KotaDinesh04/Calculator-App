@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-
+import './Form.css'
 export default function Form() {
-    const [text, setText] = useState("Enter the values");
+    const [text, setText] = useState("");
     const handleOnChange = (event) => {
         setText(event.target.value);
         // console.log(text);
@@ -46,19 +46,22 @@ export default function Form() {
             setText(num1/num2);
         }
     }
-
+    const handleDel = ()=>{
+        setText(text.slice(0,text.length-1));
+    }
     const handleClear = ()=>{
         setText("");
     }
     return (
         <div className='container'>
+            <h2 className='top-text'>Calculator</h2>
             <input
-                className="form-control form-control-lg"
+                className="form-control form-control-lg text-area"
                 value={text}
                 type="text"
                 aria-label=".form-control-lg example"
                 onChange={handleOnChange}
-                style={{ marginTop: '5rem' }}
+                placeholder='Enter two values'
             />
             <div className="position-relative my-5">
                 <div className="position-absolute top-0 start-0">
@@ -123,6 +126,9 @@ export default function Form() {
             <div className="position-relative">
                 <div className="position-absolute top-0 start-0">
                     <input className="btn btn-sm btn-dark" type="button" value="Clear" onClick={handleClear}/>
+                </div>
+                <div className="position-absolute top-0 start-50 translate-middle-x">
+                    <input className="btn btn-dark btn-sm" type="button" value="Del" onClick={handleDel}/>
                 </div>
                 <div className="position-absolute top-0 end-0">
                     <input className="btn btn-sm btn-dark" type="button" value="Ans" onClick={handleAns}/>
